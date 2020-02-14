@@ -1,0 +1,35 @@
+body {
+    font-family: arial;
+    overflow: auto;
+}
+
+#greenBox {
+    width: 500px;
+    height: 120px;
+    background-color: green;
+}
+
+.squareBoxes {
+    float: left;
+    padding: 5px;
+}
+
+#nameField {
+   margin: 25px 5px;
+}
+
+#playButton {
+    margin: 5px;
+    width: 90px;
+    height: 90px;
+    color: white;
+    background-color: purple;
+    text-align: center;
+}
+
+#leaderboard {
+    width: 250px;
+    height: 200px;
+    background-color: firebrick;
+    float: right;
+}
