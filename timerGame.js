@@ -1,41 +1,62 @@
-//display a counter for number of times the button is clicked
+let playButton = document.getElementById("playButton");
+let startButton = document.getElementById("startButton");
+let replayButton = document.getElementById("replayButton");
+let scoreBox = document.getElementById("scoreBox");
+let timerBox = document.getElementById("timerBox");
+let playButtonClickCounter = 0;
+let seconds = 5;
+let timerInterval = 0;
 
-let playButton = document.getElementById("playButton")
+//start countdown when click start button and once 0 enables you to click play button set timeout
+startButton.addEventListener("click", () => {
+    timerInterval = setInterval(timerCountdown, 1000);
+});
 
-let playButtonClickCounter = 0
-let scoreBox = document.getElementById("scoreBox")
+playButton.addEventListener("click", clicker);
 
 function clicker () {
-    playButtonClickCounter += 1
-    scoreBox.textContent = "Score: " + playButtonClickCounter
+    playButtonClickCounter += 1;
+    updateScoreBox(playButtonClickCounter);
 }
 
-playButton.addEventListener("click", clicker)
+function updateScoreBox(score) {
+    scoreBox.textContent = "Score: " + playButtonClickCounter;
+}
 
-let seconds = 3
-let timerInterval = 0
+function replayButtonAppear() {
+    replayButton.classList.add("replayButtonShow");
+    replayButton.classList.remove("replayButtonHide");
+}
 
-//to stop the timer, declare a variable and put the set interval function in this variable then clear interval on this one
 function timerCountdown() {
-    timerInterval = setInterval(function() {
-        seconds--
-        document.getElementById("timerBox").textContent = "Timer: " + seconds
-        if(!seconds) {
-            if (playButtonClickCounter<10 && playButtonClickCounter>=1) {
-                playButton.removeEventListener("click", clicker)
-                clearInterval(timerInterval)
-                alert("Time's up! Well you're crap at this! You only scored " + playButtonClickCounter + " points!")
-            } else if (playButtonClickCounter < 1) {
-                playButton.removeEventListener("click", clicker)
-                clearInterval(timerInterval)
-                alert("Time's up! Oh dear what happened!?! You scored zero!")
-            } else {
-                playButton.removeEventListener("click", clicker)
-                clearInterval(timerInterval)
-                alert("Time's up! You're great! You got a score of: " + playButtonClickCounter + " points!")
-            }
+    console.log(seconds);
+    timerBox.textContent = "Timer: " + seconds;
+    seconds--;
+
+    if(seconds < 0) {
+        let message = "";
+        if (playButtonClickCounter<10 && playButtonClickCounter>=1) {
+            message = `Time's up! ${name} You only scored ${playButtonClickCounter} points!`;
+        } else if (playButtonClickCounter < 1) {
+            message = "Time's up! Oh dear what happened!?! You scored zero!";
+        } else {
+            message = `Time's up! You're great! You got a score of: ${playButtonClickCounter} points!`;
         }
-    }, 1000)
+        playButton.removeEventListener("click", clicker);
+        alert(message);
+        clearInterval(timerInterval);
+        seconds = 0;
+        playButtonClickCounter = 0;
+        updateScoreBox(playButtonClickCounter);
+        replayButtonAppear();
+        replayButton.addEventListener("click", ()=> {
+            location.reload();
+        })
+    }
 }
 
-timerCountdown()
+//sort out disabling the start button after game ends
+
+
+//grab the input from the name text field
+// let name = document.getElementById("nameField").value

@@ -1,24 +1,42 @@
+* {
+    display: flex;
+    justify-content: center;
+}
+
 body {
     font-family: arial;
-    overflow: auto;
+    flex-direction: column;
+    animation: rainbow-background 5s linear infinite;
+
+
+}
+
+.title {
+}
+
+.gamePlayContainer {
 }
 
 #greenBox {
-    width: 500px;
-    height: 120px;
-    background-color: green;
+    width: 800px;
+    border: 5px solid green;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .squareBoxes {
-    float: left;
     padding: 5px;
 }
 
 #nameField {
-   margin: 25px 5px;
+    width: 200px;
+    height: 50px;
+   margin: 1px 1px;
 }
 
-#playButton {
+#startButton, #playButton {
     margin: 5px;
     width: 90px;
     height: 90px;
@@ -27,9 +45,59 @@ body {
     text-align: center;
 }
 
+.replayButtonHide {
+    visibility: hidden;
+}
+
+.replayButtonShow {
+    margin: 5px;
+    width: 90px;
+    height: 90px;
+    color: white;
+    background-color: purple;
+    text-align: center;
+    visibility: visible;
+}
+
 #leaderboard {
     width: 250px;
     height: 200px;
     background-color: firebrick;
-    float: right;
+}
+
+/*keyframe animations*/
+@keyframes rainbow-background {
+    0% {
+        background: rgba(148, 0, 211, 0.5);
+    }
+    10% {
+        background: rgba(75, 0, 130, 0.5);
+    }
+    20% {
+        background: rgba(0, 0, 255, 0.5);
+    }
+    30% {
+        background: rgba(53, 161, 232, 0.5);
+    }
+    40% {
+        background: rgba(0, 255, 0, 0.5);
+    }
+    50% {
+        background: rgba(255, 255, 0, 0.5);
+    }
+    60% {
+        background: rgba(255, 162, 0, 0.5);
+    }
+    70% {
+        background: rgba(255, 127, 0, 0.5);
+    }
+    80% {
+        background: rgba(255, 0 , 0, 0.5);
+    }
+    90% {
+        background: rgba(255, 105, 180, 0.5);
+    }
+    100% {
+        background: rgba(242, 58, 205, 0.5);
+    }
 }
