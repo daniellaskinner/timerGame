@@ -29,6 +29,7 @@ function replayButtonAppear() {
 }
 
 function timerCountdown() {
+    startButton.setAttribute("disabled", true);
     console.log(seconds);
     timerBox.textContent = "Timer: " + seconds;
     seconds--;
@@ -55,7 +56,9 @@ function timerCountdown() {
     }
 }
 
+
 //sort out disabling the start button after game ends
+
 
 
 //grab the input from the name text field
