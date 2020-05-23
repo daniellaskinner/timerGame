@@ -57,9 +57,7 @@ function timerCountdown() {
 }
 
 
-//sort out disabling the start button after game ends
-
-
+//got start as a button tag disabling and clicker as a div tag removing event listener
 
 //grab the input from the name text field
 // let name = document.getElementById("nameField").value

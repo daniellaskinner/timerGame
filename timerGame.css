@@ -65,6 +65,10 @@ body {
     background-color: firebrick;
 }
 
+#timerBox, #scoreBox {
+  width: 80px;
+}
+
 /*keyframe animations*/
 @keyframes rainbow-background {
     0% {
